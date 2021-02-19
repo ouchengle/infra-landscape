@@ -2,17 +2,15 @@
 home: true
 heroImage: /img/logo.png
 heroText: Infrastructure for openEuler, MindSpore, openGauss and etc.
-tagline: Build open source community by utilizing CNCF other open source projects.
+tagline: Build open source communities by utilizing CNCF other individual open source projects.
 actionText: Find More →
 actionLink: /service/
 features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+- title: Contributor License Agreement 
+  details: CLA服务，支持社区和项目独立配置，协议内容支持多语言，历史版本管理等，签署支持个人独立贡献者和企业员工两种类型。
+- title: Mailing List
+  details: 基于Mailman套件，支持社区邮件列表独立配置。
+- title: Community DashBoard
+  details: 基于Grafana，支持自定义配置，当前支持的数据源包括gitee，github，网站访问，dockerhub，repo仓库等。
+footer: MIT Licensed | Copyright © opensourceways infrastructure
 ---

@@ -1,6 +1,6 @@
 FROM node:alpine as Builder
 
-MAINTAINER TommyLike<tommylikehu@gmail.com>
+LABEL MAINTAINER="TommyLike<tommylikehu@gmail.com>"
 
 RUN mkdir -p /home/infra-landscape
 WORKDIR /home/infra-landscape
