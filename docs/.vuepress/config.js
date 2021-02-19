@@ -2,7 +2,7 @@ module.exports = {
     title: 'opensourceway',// 设置网站标题
     description: 'official website for opensourceway',
     base: '/',   // 设置站点根路径
-    dest: './ROOT',  // 设置输出目录theme
+    dest: './dest',  // 设置输出目录theme
     port: 8086,
     head: [],
     plugins: ['markdown-it-toc-done-right'],

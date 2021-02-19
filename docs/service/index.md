@@ -1,6 +1,6 @@
 # Service introductions
 ### [CLA Service](/service/cla)
-### [MailList](/service/maillist)
+### [Mailing List](/service/mailinglist)
 ### [DashBoard](/service/dashboard)
 ### [Bugzilla](/service/bugzilla)
 ### [KeyCloak](/service/keycloak)
