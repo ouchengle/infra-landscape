@@ -1,10 +1,10 @@
 ---
 home: true
-heroImage: /img/logo.jpg
-heroText: Community FAQ
-tagline: Community FAQ
-actionText: Start →
-actionLink: /guide/
+heroImage: /img/logo.png
+heroText: Infrastructure for openEuler, MindSpore, openGauss and etc.
+tagline: Build open source community by utilizing CNCF other open source projects.
+actionText: Find More →
+actionLink: /service/
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。

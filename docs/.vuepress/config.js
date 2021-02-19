@@ -1,27 +1,18 @@
 module.exports = {
-    title: '开源社区帮助文档',// 设置网站标题
-    description: '开源社区帮助文档',
+    title: 'opensourceway',// 设置网站标题
+    description: 'official website for opensourceway',
     base: '/',   // 设置站点根路径
-    dest: './ROOT',  // 设置输出目录
+    dest: './ROOT',  // 设置输出目录theme
     port: 8086,
     head: [],
     plugins: ['markdown-it-toc-done-right'],
     themeConfig: {
-        logo: '/img/logo.jpg',
+        logo: '/img/logo.png',
         nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Guide', link: '/guide/' },
-            { text: 'openeuler', link: '/openeuler/' },
-            { text: 'openguass', link: '/openguass/faq' },
-            { text: 'openlookeng', link: '/openlookeng/faq' },
-            { text: 'mindspore', link: '/mindspore/faq' },
-            { text: 'language', items:[
-                {text:'chinese',items:[
-                    {text:'one',link: '/language/chinese/'},
-                    {text:'two',link: '/language/english/'}
-                    ]},
-                {text:'english',link: '/language/english/'}
-                ] },
+            { text: 'Landscape', link: '/' },
+            { text: 'Service Guides', link: '/service/' },
+            { text: 'FAQ', link: '/faq/' },          
+            { text: 'Contact us', link: '/contact/' },          
         ],
         sidebar: 'auto',
         sidebarDepth: 2,
