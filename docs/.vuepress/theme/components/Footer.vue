@@ -1,7 +1,7 @@
 <template>
-    <div class="deep_bg center white-font-color footer">
+    <footer class="deep_bg center white-font-color footer">
         <span>{{footer}}</span>
-    </div>
+    </footer>
 </template>
 
 <script>

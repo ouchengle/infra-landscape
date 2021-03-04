@@ -101,7 +101,6 @@
             </div>
         </div>
         <Content class="theme-default-content custom"/>
-
     </main>
 </template>
 
