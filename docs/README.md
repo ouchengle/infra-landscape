@@ -5,6 +5,10 @@ heroText: Infrastructure for openEuler, MindSpore, openGauss and etc.
 tagline: Build open source communities by utilizing CNCF other individual open source projects.
 actionText: Find More →
 actionLink: /service/
+actionText_faq: FAQ
+actionLink_faq: /faq/
+actionText_contact: Contact us
+actionLink_contact: /contact/faq
 features:
 - title: Contributor License Agreement 
   details: CLA服务，支持社区和项目独立配置，协议内容支持多语言，历史版本管理等，签署支持个人独立贡献者和企业员工两种类型。
