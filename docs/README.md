@@ -16,5 +16,4 @@ features:
   details: 基于Mailman套件，支持社区邮件列表独立配置。
 - title: Community DashBoard
   details: 基于Grafana，支持自定义配置，当前支持的数据源包括gitee，github，网站访问，dockerhub，repo仓库等。
-footer: MIT Licensed | Copyright © opensourceways infrastructure
 ---

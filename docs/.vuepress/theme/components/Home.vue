@@ -260,6 +260,8 @@
                 width 400px
 
         #section_3
+            a
+                color black
             & > div
                 display flex
                 flex-direction row-reverse

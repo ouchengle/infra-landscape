@@ -1,8 +1,8 @@
 module.exports = {
-    title: 'opensourceway',// 设置网站标题
+    title: 'opensourceway',
     description: 'official website for opensourceway',
-    base: '/',   // 设置站点根路径
-    dest: './dest',  // 设置输出目录theme
+    base: '/',
+    dest: './dest',
     port: 8086,
     head: [['link',
         {rel: 'icon', href: 'img/logo.jpg'}]],
@@ -10,13 +10,14 @@ module.exports = {
     themeConfig: {
         logo: '/img/logo.png',
         nav: [
-            { text: 'Landscape', link: '/' },
-            { text: 'Service Guides', link: '/service/' },
-            { text: 'FAQ', link: '/faq/' },          
-            { text: 'Contact us', link: '/contact/faq' },
+            {text: 'Landscape', link: '/'},
+            {text: 'Service Guides', link: '/service/'},
+            {text: 'FAQ', link: '/faq/'},
+            {text: 'Contact us', link: '/contact/faq'},
         ],
         sidebar: 'auto',
         sidebarDepth: 2,
         search: false,
+        footer: 'MIT Licensed | Copyright © opensourceways infrastructure',
     }
 };
