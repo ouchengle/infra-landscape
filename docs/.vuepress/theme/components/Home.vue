@@ -211,6 +211,9 @@
         //padding-top $navbarHeight
         display block
 
+        a
+            color white
+
         .flex_space_between
             display flex
             justify-content space-around
