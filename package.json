@@ -11,6 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@goy/vuepress-plugin-svg-icons": "^4.2.3",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "vuepress": "^1.8.0"
+  },
+  "dependencies": {
+    "element-ui": "^2.15.0"
   }
 }
