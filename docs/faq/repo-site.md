@@ -8,17 +8,10 @@ centos7.6
 ## **搭建步骤：**
 
 ## 1.安装nginx+fancyindexmodule（目录索引模块）和rsync
+1.安装nginx并重新编译fancyindexmodule模块
 ```
 yum install -y nginx
 systemctl enable nginx
-yum install -y rsync
-stat /etc/rsyncd.secrets
-echo "${密码}" > /etc/rsyncd.secrets
-chmod 600 /etc/rsyncd.secrets
-mdkir -pv /repo/openeuler
-chmod 777 -R /repo/openeuler/
-#启动rsync daemon模式，可向外提供服务
-rsync --daemon --config=/etc/rsyncd.conf
 #查看并下载相应版本nginx，此处以yum安装的nginx版本为1.16.1为例
 yum install -y git redhat-rpm-config  gperftools perl-ExtUtils-Embed readline-devel zlib-devel pam-devel libxml2-devel libxslt-devel openldap-devel python-devel  openssl-devel cmakepcre-develnanowget  gcc gcc-c++ ncurses-devel perl make cmake bison autoconf wget lrzsz  libtool libtool-ltdl-devel freetype-devel libjpeg.x86_64 libjpeg-devel libpng-devel gd-devel  python-develpatchsudo openssl* openssl  bzip* bzip2 unzip  libevent* libxml* libcurl* curl-devel
 nginx -v
@@ -64,6 +57,17 @@ location = /favicon.ico {
           log_not_found off;
           access_log off;
         }
+```
+2.准备同步环境
+```
+yum install -y rsync
+stat /etc/rsyncd.secrets
+echo "${密码}" > /etc/rsyncd.secrets
+chmod 600 /etc/rsyncd.secrets
+mdkir -pv /repo/openeuler
+chmod 777 -R /repo/openeuler/
+#启动rsync daemon模式，可向外提供服务
+rsync --daemon --config=/etc/rsyncd.conf
 #创建baidu.html文件和目录
 mkdir -pv /etc/nginx/conf/static/
 vim /etc/nginx/conf/static/baidu.html
@@ -105,7 +109,7 @@ vim /etc/nginx/conf/static/baidu.html
         var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?f1316d4c46483e9f62085015686b9b5e";//根据实际情况修改
+          hm.src = "https://hm.baidu.com/hm.js?${ID}";//根据实际情况填入
           var s = document.getElementsByTagName("script")[0];
           s.parentNode.insertBefore(hm, s);
         })();
@@ -115,13 +119,15 @@ vim /etc/nginx/conf/static/baidu.html
       </head>
       <body>
         <h1>Index of
-#检查配置并重新加载配置文件
+```
+3.检查nginx配置并重新启动
+```
 nginx -t
 nginx -s reload
-````
+```
 ## 2.开始初次同步
 ```
-rsync -av --partial --progress "--delete" --password-file=/etc/rsyncd.secrets  "rsync://root@${HOST}/${PATH}"  "/repo/openeuler"
+rsync -av --partial --progress "--delete" --password-file=/etc/rsyncd.secrets  "rsync://root@${HOST}/openeuler"  "/repo/openeuler"
 ```
 ## 3.执行命令写入文件 rsync.sh
 ```
@@ -133,5 +139,6 @@ echo "endtime $(date)"
 
 ## 4.加入定时任务（每天增量同步）
 ```
+#加入定时任务
 0 1 * * * /root/rsync.sh >>/var/log/rsync.log
 ```
