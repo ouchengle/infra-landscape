@@ -17,6 +17,7 @@
     "vuepress": "^1.8.0"
   },
   "dependencies": {
-    "element-ui": "^2.15.0"
+    "element-ui": "^2.15.0",
+    "svg-sprite-loader": "^5.2.1"
   }
 }

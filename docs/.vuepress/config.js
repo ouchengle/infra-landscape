@@ -19,5 +19,5 @@ module.exports = {
         sidebarDepth: 2,
         search: false,
         footer: 'MIT Licensed | Copyright © opensourceways infrastructure',
-    }
-};
+    },
+}
