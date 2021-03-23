@@ -10,14 +10,8 @@
         <div class="section">
             <div id="section_1">
                 <div class="white_content_box">
-                    <p class="margin_bottom_2rem">A DIGITAL MARKETING & DESIGN AGENCY</p>
-                    <p class="margin_bottom_2rem">We love the Web and the work we do.We work closely with our clients to
-                        deliver the best possible
-                        solutions for their needs</p>
-                    <NavLink
-                            class="action-button"
-                            :item="actionLink"
-                    />
+                    <p class="margin_bottom_2rem">OpenSource Infrastructure</p>
+                    <p class="margin_bottom_2rem">We love open source and we believe we can utilize open source projects to construct our open source community infrastructure.</p>
                 </div>
 
             </div>
@@ -26,52 +20,23 @@
                     <div>
                         <h2>ABOUT US</h2>
                         <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                            Semantics
+                            Open source Infrastructure team started along with openEuler, MindSpore, openGauss and openLookeng
+                          communities.</p>
+                        <p> We are responsible for the common infrastructure of these communities, including
+                          Community Portal, Communication, Accounts, Developing, Testing, Distribution and Community Health Analytics tools.
                         </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
                     </div>
                     <div>
                         <img src="https://themes.gohugo.io//theme/airspace-hugo/images/wrapper-img.png" alt="picture">
                     </div>
                 </div>
             </div>
-            <div id="section_3">
-                <div class="white_content_box">
-                    <div>
-                        <h2>WE BELIEVE IN GREAT IDEAS</h2>
-                        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                            eros.
-                            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                            justo sit amet risus.</p>
-                        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                            eros.
-                            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                            justo sit amet risus.</p>
-                        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                            eros.
-                            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                            justo sit amet risus.</p>
-                        <NavLink
-                                class="action-button black-font-color"
-                                :item="actionLink_faq"
-                        />
-                    </div>
-                </div>
-
-            </div>
             <div id="section_4" class="white_bg">
                 <div class="white_content_box">
                     <div class="center">
                         <h2>OUR SERVICES</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,</p>
-                        <p>there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                            Semantics</p>
+                        <p>Most of our services started from open source projects</p>
+                        <p>which are fully accessible and can be easily configured with our guidance in one minute</p>
                     </div>
                     <div>
                         <div class="flex_space_between">
@@ -85,6 +50,29 @@
                     </div>
                 </div>
 
+            </div>
+            <div id="section_3">
+              <div class="white_content_box">
+                <div>
+                  <h2>WE BELIEVE IN GREAT IDEAS</h2>
+                  <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+                    eros.
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                    justo sit amet risus.</p>
+                  <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+                    eros.
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                    justo sit amet risus.</p>
+                  <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+                    eros.
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                    justo sit amet risus.</p>
+                  <NavLink
+                      class="action-button black-font-color"
+                      :item="actionLink_faq"
+                  />
+                </div>
+              </div>
             </div>
             <div id="section_5">
                 <div class="white_content_box center white-font-color">
@@ -143,26 +131,25 @@
                 bg_1_distance: '',
                 bg_2_distance: '',
                 bg_3_distance: '',
-                serviceArr: [
+                serviceArr: [{
+                    icon: 'coffee',
+                    title: 'CLA',
+                    description: 'Easily handle Contributor License Agreements (CLAs), both for individual and cooperation licenses, multiple languages are supported'
+                },
                     {
-                        src: 'img/coffee.png',
-                        title: 'BRANDING',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
+                        icon: 'coffee',
+                        title: 'Maillist',
+                        description: 'Based on mailman, new host can be added within 5 steps'
                     },
                     {
-                        src: 'img/coffee.png',
-                        title: 'WEB DESIGN',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
+                        icon: 'coffee',
+                        title: 'Accounts',
+                        description: 'Unified account center for different communities.'
                     },
                     {
-                        src: 'img/coffee.png',
-                        title: 'APP DESIGN',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
-                    },
-                    {
-                        src: 'img/coffee.png',
-                        title: 'START UP',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
+                        icon: 'coffee',
+                        title: 'Yabot',
+                        description: 'Start from test infra project more features are added including support gitee, weekly report, CLA check, etc.'
                     }]
             }
         },
