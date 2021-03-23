@@ -11,7 +11,8 @@
             <div id="section_1">
                 <div class="white_content_box">
                     <p class="margin_bottom_2rem">OpenSource Infrastructure</p>
-                    <p class="margin_bottom_2rem">We love open source and we believe we can utilize open source projects to construct our open source community infrastructure.</p>
+                    <p class="margin_bottom_2rem">We love open source and we believe we can utilize open source projects
+                        to construct our open source community infrastructure.</p>
                 </div>
 
             </div>
@@ -20,14 +21,39 @@
                     <div>
                         <h2>ABOUT US</h2>
                         <p>
-                            Open source Infrastructure team started along with openEuler, MindSpore, openGauss and openLookeng
-                          communities.</p>
+                            Open source Infrastructure team started along with openEuler, MindSpore, openGauss and
+                            openLookeng
+                            communities.</p>
                         <p> We are responsible for the common infrastructure of these communities, including
-                          Community Portal, Communication, Accounts, Developing, Testing, Distribution， License and Community Health Analytics tools.
+                            Community Portal, Communication, Accounts, Developing, Testing, Distribution， License and
+                            Community Health Analytics tools.
                         </p>
                     </div>
                     <div>
                         <img src="https://themes.gohugo.io//theme/airspace-hugo/images/wrapper-img.png" alt="picture">
+                    </div>
+                </div>
+            </div>
+            <div id="section_3">
+                <div class="white_content_box">
+                    <div>
+                        <h2>WE BELIEVE IN GREAT IDEAS</h2>
+                        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+                            eros.
+                            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                            justo sit amet risus.</p>
+                        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+                            eros.
+                            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                            justo sit amet risus.</p>
+                        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
+                            eros.
+                            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
+                            justo sit amet risus.</p>
+                        <NavLink
+                                class="action-button black-font-color"
+                                :item="actionLink_faq"
+                        />
                     </div>
                 </div>
             </div>
@@ -38,7 +64,7 @@
                         <p>Most of our services started from open source projects</p>
                         <p>which are fully accessible and can be easily configured with our guidance in one minute</p>
                     </div>
-                    <div>
+                    <div class="margin_top_2rem">
                         <div class="flex_space_between">
                             <div class="center" v-for="item in serviceArr">
                                 <img class="img-coffee" :src="item.src" alt="coffee">
@@ -50,29 +76,6 @@
                     </div>
                 </div>
 
-            </div>
-            <div id="section_3">
-              <div class="white_content_box">
-                <div>
-                  <h2>WE BELIEVE IN GREAT IDEAS</h2>
-                  <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                    eros.
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                    justo sit amet risus.</p>
-                  <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                    eros.
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                    justo sit amet risus.</p>
-                  <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                    eros.
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                    justo sit amet risus.</p>
-                  <NavLink
-                      class="action-button black-font-color"
-                      :item="actionLink_faq"
-                  />
-                </div>
-              </div>
             </div>
             <div id="section_5">
                 <div class="white_content_box center white-font-color">
@@ -131,23 +134,24 @@
                 bg_1_distance: '',
                 bg_2_distance: '',
                 bg_3_distance: '',
-                serviceArr: [{
-                    icon: 'coffee',
-                    title: 'CLA',
-                    description: 'Easily handle Contributor License Agreements (CLAs), both for individual and cooperation licenses, multiple languages are supported'
-                },
+                serviceArr: [
                     {
-                        icon: 'coffee',
+                        src: 'img/pen.png',
+                        title: 'CLA',
+                        description: 'Easily handle Contributor License Agreements (CLAs), both for individual and cooperation licenses, multiple languages are supported'
+                    },
+                    {
+                        src: 'img/email.png',
                         title: 'Maillist',
                         description: 'Based on mailman, new host can be added within 5 steps'
                     },
                     {
-                        icon: 'coffee',
+                        src: 'img/account.png',
                         title: 'Accounts',
                         description: 'Unified account center for different communities.'
                     },
                     {
-                        icon: 'coffee',
+                        src: 'img/robot.png',
                         title: 'Yabot',
                         description: 'Start from test infra project more features are added including support gitee, weekly report, CLA check, etc.'
                     }]
@@ -200,8 +204,8 @@
         display block
 
         .img-coffee
-            width 4rem
-            height 4rem
+            width 3rem
+            height 3rem
 
         a
             color white
@@ -261,6 +265,12 @@
 
                 & > div
                     width 500px
+
+        .margin_top_1rem
+            margin-top 1rem
+
+        .margin_top_2rem
+            margin-top 2rem
 
         .margin_bottom_2rem
             margin-bottom 2rem
