@@ -19,10 +19,13 @@ body
 
 .hover-pointer
   cursor pointer
+
 .gray-color
   color #9d9d9d
+
 .hover-color-slow:hover
   color #797979
+
 .page
   padding-left $sidebarWidth
 
@@ -37,7 +40,7 @@ body
   border-bottom 1px solid $borderColor
 
 .theme-default-content:not(.custom)
-  max-width: 1000px;
+  max-width: 80vw;
 
 .sidebar-mask
   position fixed
@@ -117,12 +120,12 @@ strong
   font-weight 600
 
 h1, h2, h3, h4, h5, h6
-  font-weight 600
+  font-weight 400
   line-height 1.25
 
   {$contentClass}:not(.custom) > &
     margin-top (0.5rem - $navbarHeight)
-    padding-top ($navbarHeight + 1rem)
+    padding-top $navbarHeight - 1.4rem + $navbar-vertical-padding * 2
     margin-bottom 0
 
     &:first-child

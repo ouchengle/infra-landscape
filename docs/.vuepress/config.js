@@ -8,7 +8,7 @@ module.exports = {
     },
     port: 8086,
     head: [['link',
-        {rel: 'icon', href: 'img/logo.jpg'}]],
+        {rel: 'icon', href: '/img/logo.png'}]],
     plugins: [['markdown-it-toc-done-right'], ['@goy/svg-icons']],
     themeConfig: {
         logo: '/img/logo.png',

@@ -1,5 +1,5 @@
 # Service introductions
-### [上线应用](/service/app.md)
+### [上线应用](/service/app)
 ### [CLA Service](/service/cla)
 ### [Mailing List](/service/mailinglist)
 ### [DashBoard](/service/dashboard)

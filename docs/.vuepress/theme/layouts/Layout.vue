@@ -175,3 +175,19 @@
         }
     }
 </script>
+<style lang="stylus">
+    html
+        font-weight lighter
+    @media screen and (min-width: 1200px)
+        body
+            font-size 16px
+
+        @media screen and (min-width: 800px) and (max-width: 1200px)
+            body
+                font-size 14px
+
+        @media screen and (max-width: 800px)
+            body
+                font-size 12px
+</style>
+
