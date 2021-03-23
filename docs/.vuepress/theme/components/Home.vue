@@ -10,7 +10,6 @@
         <div class="section">
             <div id="section_1">
                 <div class="white_content_box">
-                    <svgicon-SvgIcon iconClass="coffee"></svgicon-SvgIcon>
                     <p class="margin_bottom_2rem">A DIGITAL MARKETING & DESIGN AGENCY</p>
                     <p class="margin_bottom_2rem">We love the Web and the work we do.We work closely with our clients to
                         deliver the best possible

@@ -41,7 +41,7 @@
                 <slot name="page-bottom"/>
             </template>
         </Page>
-        <Footer v-if="shouldShowFooter" :text="shouldShowFooter"></Footer>
+        <Footer v-if="shouldShowFooter"></Footer>
     </div>
 </template>
 

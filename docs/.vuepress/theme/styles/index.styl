@@ -17,6 +17,12 @@ body
   font-size 16px
   color $textColor
 
+.hover-pointer
+  cursor pointer
+.gray-color
+  color #9d9d9d
+.hover-color-slow:hover
+  color #797979
 .page
   padding-left $sidebarWidth
 
@@ -29,6 +35,9 @@ body
   background-color #fff
   box-sizing border-box
   border-bottom 1px solid $borderColor
+
+.theme-default-content:not(.custom)
+  max-width: 1000px;
 
 .sidebar-mask
   position fixed
@@ -194,8 +203,10 @@ th, td
 
 .white-font-color
   color white
+
 .black-font-color
   color black
+
 .white_bg
   background-color white
 
