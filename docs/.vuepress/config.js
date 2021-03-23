@@ -3,6 +3,9 @@ module.exports = {
     description: 'official website for opensourceway',
     base: '/',
     dest: './dest',
+    markdown: {
+        lineNumbers: true
+    },
     port: 8086,
     head: [['link',
         {rel: 'icon', href: 'img/logo.jpg'}]],

@@ -10,9 +10,9 @@
         <div class="section">
             <div id="section_1">
                 <div class="white_content_box">
-                    <p class="margin_bottom_2rem">OpenSource Infrastructure</p>
+                    <p class="margin_bottom_2rem">Open Source Infrastructure</p>
                     <p class="margin_bottom_2rem">We love open source and we believe we can utilize open source projects
-                        to construct our open source community infrastructure.</p>
+                      to construct our open source community infrastructure.</p>
                 </div>
 
             </div>
@@ -25,8 +25,8 @@
                             openLookeng
                             communities.</p>
                         <p> We are responsible for the common infrastructure of these communities, including
-                            Community Portal, Communication, Accounts, Developing, Testing, Distribution， License and
-                            Community Health Analytics tools.
+                          Community Portal, Communication, Accounts, Developing, Testing, Distribution，License and
+                          Community Health Analytics tools.
                         </p>
                     </div>
                     <div>
