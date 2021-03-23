@@ -23,7 +23,7 @@
                             Open source Infrastructure team started along with openEuler, MindSpore, openGauss and openLookeng
                           communities.</p>
                         <p> We are responsible for the common infrastructure of these communities, including
-                          Community Portal, Communication, Accounts, Developing, Testing, Distribution and Community Health Analytics tools.
+                          Community Portal, Communication, Accounts, Developing, Testing, Distribution， License and Community Health Analytics tools.
                         </p>
                     </div>
                     <div>
