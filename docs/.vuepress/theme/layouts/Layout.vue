@@ -41,7 +41,7 @@
                 <slot name="page-bottom"/>
             </template>
         </Page>
-        <Footer v-if="shouldShowFooter" :text="shouldShowFooter"></Footer>
+        <Footer v-if="shouldShowFooter"></Footer>
     </div>
 </template>
 
@@ -135,12 +135,16 @@
             })
             this.changePageHeight()
         },
+        updated() {
+            this.changePageHeight()
+        },
 
         methods: {
             changePageHeight() {
                 this.$nextTick(() => {
+                    document.getElementsByTagName('main')[0].style.minHeight = 0 + 'px';
                     if (parseInt(window.getComputedStyle(document.getElementsByTagName('main')[0]).height) < document.documentElement.clientHeight - parseInt(window.getComputedStyle(document.getElementsByClassName('footer')[0]).height)) {
-                        document.getElementsByTagName('main')[0].style.height = document.documentElement.clientHeight - parseInt(window.getComputedStyle(document.getElementsByClassName('footer')[0]).height) + 'px'
+                        document.getElementsByTagName('main')[0].style.minHeight = document.documentElement.clientHeight - parseInt(window.getComputedStyle(document.getElementsByClassName('footer')[0]).height) + 'px'
                     }
                 })
             },

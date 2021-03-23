@@ -76,7 +76,7 @@
                     <div>
                         <div class="flex_space_between">
                             <div class="center" v-for="item in serviceArr">
-                                <vp-icon :name=item.icon size="4em"/>
+                                <img class="img-coffee" :src="item.src" alt="coffee">
                                 <h2>{{item.title}}</h2>
                                 <p>{{item.description}}</p>
                             </div>
@@ -143,23 +143,24 @@
                 bg_1_distance: '',
                 bg_2_distance: '',
                 bg_3_distance: '',
-                serviceArr: [{
-                    icon: 'coffee',
-                    title: 'BRANDING',
-                    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
-                },
+                serviceArr: [
                     {
-                        icon: 'coffee',
+                        src: 'img/coffee.png',
+                        title: 'BRANDING',
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
+                    },
+                    {
+                        src: 'img/coffee.png',
                         title: 'WEB DESIGN',
                         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
                     },
                     {
-                        icon: 'coffee',
+                        src: 'img/coffee.png',
                         title: 'APP DESIGN',
                         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
                     },
                     {
-                        icon: 'coffee',
+                        src: 'img/coffee.png',
                         title: 'START UP',
                         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut'
                     }]
@@ -210,6 +211,10 @@
     .home
         //padding-top $navbarHeight
         display block
+
+        .img-coffee
+            width 4rem
+            height 4rem
 
         a
             color white
@@ -262,6 +267,7 @@
         #section_3
             a
                 color black
+
             & > div
                 display flex
                 flex-direction row-reverse
@@ -361,40 +367,40 @@
                 color lighten($textColor, 25%)
 
 
-    @media (max-width: $MQMobile)
-        .home
-            .features
-                flex-direction column
+        @media (max-width: $MQMobile)
+            .home
+                .features
+                    flex-direction column
 
-            .feature
-                max-width 100%
-                padding 0 2.5rem
+                .feature
+                    max-width 100%
+                    padding 0 2.5rem
 
-    @media (max-width: $MQMobileNarrow)
-        .home
-            padding-left 1.5rem
-            padding-right 1.5rem
+        @media (max-width: $MQMobileNarrow)
+            .home
+                padding-left 1.5rem
+                padding-right 1.5rem
 
-            .action-button
-                font-size 1rem
-                padding 0.6rem 1.2rem
+                .action-button
+                    font-size 1rem
+                    padding 0.6rem 1.2rem
 
-            .hero
-                img
-                    max-height 210px
-                    margin 2rem auto 1.2rem
+                .hero
+                    img
+                        max-height 210px
+                        margin 2rem auto 1.2rem
 
-                h1
-                    font-size 2rem
+                    h1
+                        font-size 2rem
 
-                h1, .description, .action
-                    margin 1.2rem auto
+                    h1, .description, .action
+                        margin 1.2rem auto
 
-                .description
-                    font-size 1.2rem
+                    .description
+                        font-size 1.2rem
 
 
-            .feature
-                h2
-                    font-size 1.25rem
+                .feature
+                    h2
+                        font-size 1.25rem
 </style>
