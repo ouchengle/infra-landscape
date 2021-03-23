@@ -7,18 +7,6 @@
 # CLA签署说明
 ## 如果您要进行CLA个人签署
 - 从[openEuler官方网站](https://openeuler.org)首页社区版块进入[贡献攻略](https://openeuler.org/zh/community/contribution/)
-<div><img src='https://gitee.com/cla-test/test1/raw/master/img/1.png' width=600 height=350 alt='openEuler官方网站'/></div>
-```(js)
- prop() {
-                return {
-                    subfield: false,// 单双栏模式
-                    defaultOpen: 'preview',//edit： 默认展示编辑区域 ， preview： 默认展示预览区域
-                    editable: false,
-                    toolbarsFlag: false,
-                    scrollStyle: true
-                }
-            }
-```
 - 通过[贡献攻略](https://openeuler.org/zh/community/contribution/)点击**签署CLA**进入[CLA签署](https://clasign.osinfra.cn/sign/Z2l0ZWUlMkZvcGVuZXVsZXI=)页面
 <div><img src='https://gitee.com/cla-test/test1/raw/master/img/2.png' width=600 height=350 alt='openEuler贡献攻略'/></div>
 
@@ -29,14 +17,8 @@
 <div><img src='https://gitee.com/cla-test/test1/raw/master/img/14.png' alt='gitee授权页面'></div>
 
 - 阅读条款： 请仔细阅读贡献者协议的各项条款。
-<<<<<<< HEAD
-<img src='https://gitee.com/cla-test/test1/raw/master/img/15.png' alt='贡献者协议'>
-  
-=======
 <div><img src='https://gitee.com/cla-test/test1/raw/master/img/15.png' alt='贡献者协议'></div>
 
-### 第二个三级标题
->>>>>>> 46ca231... add footer ipc
 - 填写信息： CLA签署平台将自动获取您gitee账号的主邮箱和名字，并填充到对应的输入框中。请选择填写其他各项信息并保证正确。
 <div><img src='https://gitee.com/cla-test/test1/raw/master/img/16.png' alt='CLA个人签署页面'></div>
 
