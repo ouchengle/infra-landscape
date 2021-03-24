@@ -170,15 +170,55 @@ spec:
       prune: false
 ```
 其中比较关键的字段定义如下:
-1. metadata.name: 应用名，需要保证全局唯一，所以可以使用{{community}}-{{region}}-{{application}}的方式命名
+1. metadata.name: 应用名，需要保证全局唯一，所以可以使用community-region-application的方式命名
 2. labels.community: 引用所属的社区，方便后续统计和分类。
 3. spec.destination.namespace: 应用部署到的集群对应的namespace
 4. spec.destination.name: 应用部署到的集群名，完整的集群列表可以[参考])(#)
 5. project: 项目名，跟社区名保持一致。
-6. source.{{path&repoURL&targetRevision}}: 服务要同步的Yaml路径，即上一步提交的仓库地址+文件夹路径
-7. syncPolicy: 同步策略，你可以选择自动同步或者手动触发，自动同步在监测到source文件更新后，会自动触发集群应用更新。
+6. source.(path&repoURL&targetRevision): 服务要同步的Yaml路径，即上一步提交的仓库地址+文件夹路径
+7. syncPolicy: 同步策略，你可以选择自动同步或者手动触发，自动同步在监测到source文件更新后，会自动触发集群应用更新。  
+
+你需要以应用程序程序名命名，并存放到对应的社区目录中, 下图是mindspore社区上线的服务, 提交后应用会自动创建成功
+```shell
+➜  infra-community git:(master) tree -L 3
+.
+├── LICENSE
+├── README.md
+├── communities
+│         ├── mindspore
+│         │         ├── api-ingress-cn-north4.yaml
+│         │         ├── arm-slave.yaml
+│         │         ├── bot.yaml
+│         │         ├── download-repo-cn-north4.yaml
+│         │         ├── hk-x86-slave.yaml
+│         │         ├── jenkins-cn-north4.yaml
+│         │         ├── jenkins.yaml
+```
 ## 上线后自助服务
 ### 手动同步应用
+创建成功后的应用可以在我们的Web服务中直接查看应用的状态，通过我们的开发者账号登录地址`https://build.osinfra.cn`，可以查看服务的具体状态，包括
+同步状态与时间，Kubernetes各个资源的状态，Pod的状态与日志等信息，加入你刚提交了Yaml文件的更新，你也可以在界面触发应用资源的更新，
+下图展示的是`ascend-dailybuild`应用的状态。
+![argocd-screen](./img/argocd-screen-1.png)
 ### 搭建发布流水线
+当前基础设施团队基于Jenkins提供服务的持续发布能力，您可以通过开发者账号登录地址:`https://jenkins.osinfra.cn/`配置并部署您应用的构建发布流水线，
+一个最基本的流水线会包括:
+1. 测试验证
+2. 构建服务镜像
+3. 推送镜像到华为云SWR
+4. Clone部署代码，并通过kustomize edit修改Yaml中的镜像ID
+5. 提交修改
+6. 触发ArgoCD升级，或者自动触发
+
+::: tip
+当前基础设施的Jenkins中已经包含华为云SWR的账号信息，如果你需要使用，需要配置Env Binding，
+将HuaweiCloud SWR Token映射为`DOCKER_USER`与`DOCKER_PASS`， 并在上传前执行docker login指令，其次镜像名需要带前缀:
+`swr.ap-southeast-1.myhuaweicloud.com/opensourceway/{image_name:image_tag}`
+:::
+如果需要触发ArgoCD更新应用，需要使用ArgoCD的API，参考如下:
+```shell
+ARGOCD_TOKEN=`curl -X POST -s -d '{"password":"'${ARGOCD_PASS}'","username":"'${ARGOCD_USER}'"}' "https://build.osinfra.cn/api/v1/session"|tail -1 |awk -F '[""]' '{print$4}'`>/dev/null
+curl -X POST -s -o /dev/null --cookie "argocd.token=${ARGOCD_TOKEN}" "https://build.osinfra.cn/api/v1/applications/${PROJECT_NAME}/sync">/dev/null
+```
 ### 查看容器日志
 ### 登录集群Console
