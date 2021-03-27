@@ -1,5 +1,12 @@
-# 基于VM搭建repo镜像源
-
+---
+title: 基于VM搭建repo镜像源
+date: 2021-03-20
+categories:
+ - faq
+tags:
+ - faq
+footer: true
+---
 ## 硬件规格要求
 centos7.6
 4U8G
