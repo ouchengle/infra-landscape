@@ -221,4 +221,75 @@ ARGOCD_TOKEN=`curl -X POST -s -d '{"password":"'${ARGOCD_PASS}'","username":"'${
 curl -X POST -s -o /dev/null --cookie "argocd.token=${ARGOCD_TOKEN}" "https://build.osinfra.cn/api/v1/applications/${PROJECT_NAME}/sync">/dev/null
 ```
 ### 查看容器日志
+容器日志是临时的，重启后会导致之前的日志失效，为此，基础设施提供了Kibana看板，帮助查看和搜索现有的容器日志, 你可以直接访问地址[kibana](https://kibana.osinfra.cn/app/kibana)浏览。
+::: warning
+当前网站登录需要用户名和密码信息，您可以联系我们管理员获取密码信息
+:::
+在Discover的页面，您需要选择`logstash*` pattern，在过滤条件里面你需要基于应用名称容器标签等kubernetes属性对日志进行过滤，举个例子，假如我需要查看openEuler社区会议小程序后台服务的日志，我可以基于下面的条件进行过滤:
+```shell
+kubernetes.labels.app == openeuler-meetingserver #选择openEuler社区的会议程序app
+kubernetes.labels.component == web-server #选择小程序中组件为web-server的容器
+```
+所以我们推荐在部署您的应用的时候，需要基于业务逻辑合理的规划您的kubernets资源标签， 当然你也可以基于其他条件进行过滤，我们拿一个实际的日志Json样例，帮助你简单了解目前收集到的字段:
+```json
+{
+  "_index": "logstash-2021.03.27",
+  "_type": "_doc",
+  "_id": "4nW8cngBgtBrXQC23980",
+  "_version": 1,
+  "_score": null,
+  "_source": {
+    "log": "[pid: 16|app: 0|req: 3148/15742] 172.17.0.193 () {58 vars in 1255 bytes} [Sat Mar 27 16:11:17 2021] GET /meetingsdata/?rnd=0.5434837174794194 => generated 135155 bytes in 679 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)\n",
+    "stream": "stderr",
+    "docker": {
+      "container_id": "a666a6e3bf229b2e03af9f1a2a70ee5f94e061ca371ae11f4c48826a0f0030f7"
+    },
+    "kubernetes": {
+      "container_name": "meeting-server",
+      "namespace_name": "meetingserver",
+      "pod_name": "meeting-server-68d65b4d44-s2s7f",
+      "container_image": "swr.ap-southeast-1.myhuaweicloud.com/opensourceway/app-meeting-server:ab625e52fe3b93d4fcf951e7eef8d4f08f556298",
+      "container_image_id": "docker-pullable://swr.ap-southeast-1.myhuaweicloud.com/opensourceway/app-meeting-server@sha256:c27764e84a4a126629020a36dbb95227c487125c031d6707ba59022c9a8330f8",
+      "pod_id": "7bd943c6-87bb-11eb-820a-fa163eb8d9d5",
+      "host": "172.16.1.30",
+      "labels": {
+        "app": "openeuler-meetingserver",
+        "component": "web-server",
+        "pod-template-hash": "68d65b4d44"
+      },
+      "master_url": "https://10.247.0.1:443/api",
+      "namespace_id": "63b93778-e6a1-11ea-820a-fa163eb8d9d5",
+      "namespace_labels": {
+        "app": "openeuler-meetingserver",
+        "name": "meetingserver",
+        "app_kubernetes_io/instance": "openeuler-hk-meetingserver"
+      }
+    },
+    "@timestamp": "2021-03-27T08:11:18.306347184+00:00",
+    "tag": "kubernetes.var.log.containers.meeting-server-68d65b4d44-s2s7f_meetingserver_meeting-server-a666a6e3bf229b2e03af9f1a2a70ee5f94e061ca371ae11f4c48826a0f0030f7.log"
+  },
+  "fields": {
+    "@timestamp": [
+      "2021-03-27T08:11:18.306Z"
+    ]
+  },
+  "highlight": {
+    "kubernetes.labels.component": [
+      "@kibana-highlighted-field@web@/kibana-highlighted-field@-@kibana-highlighted-field@server@/kibana-highlighted-field@"
+    ],
+    "kubernetes.labels.app": [
+      "@kibana-highlighted-field@openeuler@/kibana-highlighted-field@-@kibana-highlighted-field@meetingserver@/kibana-highlighted-field@"
+    ]
+  },
+  "sort": [
+    1616832678306
+  ]
+}
+```
 ### 登录集群Console
+您也可以直接登录我们的在线kubernetes管理平台，进行应用的查看，调试，管理平台包含了我们所有的集群和服务信息，也会跟随新的集群加入不断刷新，具体访问地址[k9s](https://operate.osinfra.cn/),
+访问前，您需要首先申请开发者权限，即申请加入我们的[Github Team](https://github.com/orgs/opensourceways/teams/developer)，因为安全的原因，目前开放的还是只读权限。
+![k9s](./img/k9s.png)
+
+## 后记
+如果您有任何问题和改进建议，欢迎您随时联系[github issue](https://github.com/opensourceways/infra-landscape/issues)
