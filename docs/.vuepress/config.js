@@ -26,7 +26,7 @@ module.exports = {
             }
         ],
         subSidebar: 'auto',
-        sidebarDepth: 2,
+        sidebarDepth: 4,
         modePicker: false,
         search: false,
         footer: true,
