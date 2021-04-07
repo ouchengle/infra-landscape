@@ -30,8 +30,10 @@ module.exports = {
         modePicker: false,
         search: false,
         footer: true,
-        record: '蜀ICP备20009468号-1',
-        recordLink: 'https://icp.chinaz.com/home/info?host=osinfra.cn',
+        icpRecord: '蜀ICP备20009468号-1',
+        icpRecordLink: 'https://icp.chinaz.com/home/info?host=osinfra.cn',
+        policeRecord: '粤公网安备 44030702003822号',
+        policeRecordLink: 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030702003822',
         startYear: '2021',
     }
 }
