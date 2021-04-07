@@ -6,9 +6,12 @@
       <span>MIT Licensed | Copyright © opensourceways infrastructure</span>
       </a>
     </span>
-        <span v-if="$themeConfig.record">
+        <span v-if="$themeConfig.icpRecord">
       <reco-icon icon="reco-beian"/>
-      <a :href="$themeConfig.recordLink || '#'">{{ $themeConfig.record }}</a>
+      <a target="_blank" :href="$themeConfig.icpRecordLink || '#'">{{ $themeConfig.icpRecord }}</a>
+    </span>
+        <span v-if="$themeConfig.policeRecord">
+      <a target="_blank" :href="$themeConfig.policeRecordLink || '#'">{{ $themeConfig.policeRecord }}</a>
     </span>
         <span>
       <reco-icon icon="reco-date"/>
