@@ -9,6 +9,7 @@ tags:
 footer: true
 ---
 ### [上线应用](/service/app.md)
+### [添加Jenkins 容器执行机](/service/jenkins-slave.md)
 ### [CLA Service](/service/cla)
 ### [Mailing List](/service/mailinglist)
 ### [DashBoard](/service/dashboard)
