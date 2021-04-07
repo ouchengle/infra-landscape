@@ -112,19 +112,19 @@ jenkins执行机通过Statefulset组织，在启动pod之前会有init pod完成
 kind: StatefulSet
 apiVersion: apps/v1beta1
 metadata:
-  name: {{slave name}}
+  name: {{`slave name`}}
   namespace: jenkins
   labels:
-    slave: {{slave name}}
+    slave: {{`slave name`}}
 spec:
-  replicas: {{replica number}
+  replicas: {{`replica number`}}
   selector:
     matchLabels:
-      slave: {{slave name}}
+      slave: {{`slave name`}}
   template:
     metadata:
       labels:
-        slave: {{slave name}}
+        slave: {{`slave name`}}
     spec:
       initContainers:
         - name: slave-init
@@ -201,8 +201,8 @@ spec:
 4. `EXECUTOR_NUMBERS`: 是执行机的执行器数量，即executor的数量。
 5. `NODE_LABELS`: 节点拉起后的标签，标签可以用作后续的任务调度选择(基于节点标签)。
 6. `JENKINS_USER_NAME`和`JENKINS_USER_PASSWORD` 这个信息在集群中已经存在，直接使用即可。
-7. `{{slave name}}`: slave的名称，用于标识，比如`x86-python-check`等
-8. `{{replica number}}`: 机器的副本数，指定容器拉起的个数
+7. `{{`slave name`}}`: slave的名称，用于标识，比如`x86-python-check`等
+8. `{{`replica number`}}`: 机器的副本数，指定容器拉起的个数
 yaml准备完成后，直接提交到对应的仓库地址即可，比如MindSpore，地址在[这里](https://github.com/opensourceways/infra-mindspore/tree/master/applications/jenkins-x86-slave)
 ,具体的指导，可以[参考](https://osinfra.cn/service/app.html)。
 ### 持续部署
