@@ -10,9 +10,9 @@ footer: true
 ---
 ### [上线应用](/service/app.md)
 ### [添加Jenkins 容器执行机](/service/jenkins-slave.md)
-### [CLA Service](/service/cla)
-### [Mailing List](/service/mailinglist)
-### [DashBoard](/service/dashboard)
-### [Bugzilla](/service/bugzilla)
-### [KeyCloak](/service/keycloak)
+### [CLA Service](/service/cla.md)
+### [Mailing List](/service/mailinglist.md)
+### [DashBoard](/service/dashboard.md)
+### [Bugzilla](/service/bugzilla.md)
+### [KeyCloak](/service/keycloak.md)
 
