@@ -3,10 +3,10 @@ title: Jenkins Slave节点容器化改造指南
 date: 2021-04-06
 author: tommylikehu
 categories:
- - service
+ - jenkins
 tags:
- - service
-footer: true
+ - jenkins
+ - kubernetes
 ---
 # 概述
 Jenkins集群是我们基础设施开发门禁的首选CICD工具，为方便执行环境的升级和扩容，我们推荐在条件允许的情况下对执行环境进行容器化改造(没有特殊的硬件和虚拟化要求)，大致的步骤如下:
