@@ -5,7 +5,8 @@ module.exports = {
     base: '/',
     dest: './dest',
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        extractHeaders: ["h1", "h2", "h3", "h4", "h5", "h6"]
     },
     head: [['link',
         {rel: 'icon', href: '/img/logo.png'}],
