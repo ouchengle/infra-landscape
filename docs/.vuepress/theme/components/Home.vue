@@ -291,11 +291,11 @@
 
     .bg_1
       z-index 10
-      background-image url("https://themes.gohugo.io/theme/airspace-hugo/images/slider-bg.jpg")
+      background-image url("../images/home-bg.jpg")
 
     .bg_2
       z-index 9
-      background-image url("https://themes.gohugo.io/theme/airspace-hugo/images/featue-bg.jpg")
+      background-image url("../images/feature-bg.jpg")
 
     .bg_3_cover
       background rgba(0 0 0 .7)
@@ -303,7 +303,7 @@
 
     .bg_3
       z-index 7
-      background-image url("https://themes.gohugo.io/theme/airspace-hugo/images/call-to-action-bg.jpg")
+      background-image url("../images/call-to-action-bg.jpg")
 
     .action-button
       display inline-block
