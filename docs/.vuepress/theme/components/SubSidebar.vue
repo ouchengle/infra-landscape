@@ -72,5 +72,13 @@ export default defineComponent({
       padding-left .9rem
     &.level-3
       padding-left 1.5rem
+    &.level-4
+      padding-left 2.1rem !important
+    &.level-5
+      padding-left 2.7rem !important
+    &.level-6
+      padding-left 3.2rem !important
+
+
 </style>
 
