@@ -220,6 +220,63 @@
                                 stroke: null,
                             }
                         },
+                        {
+                            id: 'openguass',
+                            x: 700,
+                            y: 200,
+                            label: 'openguass',
+                            size: 100,
+                            description: 'openEuler通过社区合作，打造创新平台，构建支持多处理架构、统一和开放的操作系统，推动软硬件应用生态繁荣发展。',
+                            labelCfg: {
+                                positions: 'center',
+                                style: {
+                                    fontSize: 16,
+                                    fill: '#fff',
+                                }
+                            },
+                            style: {
+                                fill: '#8503ED',
+                                stroke: null,
+                            }
+                        },
+                        {
+                            id: 'openguass-prow',
+                            x: 800,
+                            y: 300,
+                            label: 'prow',
+                            size: 60,
+                            description: 'prow description',
+                            labelCfg: {
+                                positions: 'center',
+                                style: {
+                                    fontSize: 14,
+                                    fill: '#fff',
+                                }
+                            },
+                            style: {
+                                fill: '#FCA94B',
+                                stroke: null,
+                            }
+                        },
+                        {
+                            id: 'openguass-cla',
+                            x: 500,
+                            y: 300,
+                            label: 'cla',
+                            size: 60,
+                            description: 'cla description',
+                            labelCfg: {
+                                positions: 'center',
+                                style: {
+                                    fontSize: 14,
+                                    fill: '#fff',
+                                }
+                            },
+                            style: {
+                                fill: '#FCA94B',
+                                stroke: null,
+                            }
+                        },
                     ],
                     edges: [
                         {
@@ -237,6 +294,14 @@
                         {
                             source: 'openeuler',
                             target: 'Yabot',
+                        },
+                        {
+                            source: 'openguass',
+                            target: 'openguass-prow',
+                        },
+                        {
+                            source: 'openguass',
+                            target: 'openguass-cla',
                         },
                     ],
                 },
@@ -263,200 +328,194 @@
                         src: 'img/robot.png',
                         title: 'Yabot',
                         description: 'Start from test infra project more features are added including support gitee, weekly report, CLA check, etc.'
-                    }]
+                    }],
+                openeuler_countX: true,
+                openeuler_countY: true,
+                openguass_countX: true,
+                openguass_countY: true,
             }
         },
         methods: {
+            pause() {
+
+            },
+            resume() {
+
+            },
             createGraph() {
+                let tooltip = new G6.Tooltip({
+                    offsetX: 10,
+                    offsetY: 10,
+                    itemTypes: ['node'],
+                    getContent: (e) => {
+                        const outDiv = document.createElement('div');
+                        outDiv.style.width = 'fit-content';
+                        //outDiv.style.padding = '0px 0px 20px 0px';
+                        outDiv.innerHTML = `<h4>${e.item.getModel().description}</h4>`;
+                        return outDiv;
+                    },
+                });
+
                 let graph = new G6.Graph({
                         container: 'mountNode',
-                        width: 1200,
+                        width: 1500,
                         height: 600,
+                        plugins: [tooltip],
                         nodeStateStyles: {
                             hover: {
-                                // fill: 'green'
+                                fill: 'green'
                             }
                         },
                         animate: true,
                         animateCfg: {
                             duration: 2000,
+                            pauseCallback: this.pause(),
+                            resumeCallback: this.resume(),
                         },
-                        // modes: {
-                        //     default: [
-                        //         {
-                        //             type: 'tooltip',
-                        //             formatText(model) {
-                        //                 console.log(model.description);
-                        //                 return model.description;
-                        //             },
-                        //             offset: 10,
-                        //             shouldBegin: function shouldBegin() {
-                        //                 return true
-                        //             },
-                        //             shouldUpdate: function shouldUpdate() {
-                        //                 return true;
-                        //             },
-                        //         },
-                        //     ]
-                        // }
+                        modes: {}
 
                     })
                 ;
                 graph.data(this.nodesData);
                 graph.render();
                 let animation = () => {
-                    let x = Math.round(Math.random() * 10);
-                    let y = Math.round(Math.random() * 10);
-                    let countX = 1;
-                    let countY = 1;
-                    x > 5 ? countX = 1 : countX = 0;
-                    y > 5 ? countY = 1 : countY = 0;
-                    let interval = setInterval(() => {
-                        if (countX) {
-                            this.nodesData.nodes.forEach(node => {
-                                node.x += 50
-                            });
-                        } else {
-                            this.nodesData.nodes.forEach(node => {
-                                node.x -= 50
-                            });
-                        }
-                        if (countY) {
-                            this.nodesData.nodes.forEach(node => {
-                                node.y += 50
-                            });
-                        } else {
-                            this.nodesData.nodes.forEach(node => {
-                                node.y -= 50
-                            });
-                        }
-                        if (this.nodesData.nodes[1].x > 1100) {
-                            countX = 0
+                    let openeuler_x = Math.round(Math.random() * 10);
+                    let openeuler_y = Math.round(Math.random() * 10);
+                    let openeuler_speed = Math.round(Math.random() * 20) + 30;
+                    openeuler_x > 5 ? this.openeuler_countX = true : this.openeuler_countX = false;
+                    openeuler_y > 5 ? this.openeuler_countY = true : this.openeuler_countY = false;
+                    let openguass_x = Math.round(Math.random() * 10);
+                    let openguass_y = Math.round(Math.random() * 10);
+                    let openguass_speed = Math.round(Math.random() * 20) + 30;
+                    openguass_x > 5 ? this.openguass_countX = true : this.openguass_countX = false;
+                    openguass_y > 5 ? this.openguass_countY = true : this.openguass_countY = false;
+                    return setInterval(() => {
+                        console.log('setInterval');
+                        this.nodesData.nodes.forEach((node, index) => {
+                            if (index < 5) {
+                                if (this.openeuler_countX) {
+                                    node.x += openeuler_speed
+                                } else {
+                                    node.x -= openeuler_speed
+                                }
+                                if (this.openeuler_countY) {
+                                    node.y += openeuler_speed
+                                } else {
+                                    node.y -= openeuler_speed
+                                }
+                            }
+                            if (index >= 5) {
+                                if (this.openguass_countX) {
+                                    node.x += openguass_speed
+                                } else {
+                                    node.x -= openguass_speed
+                                }
+                                if (this.openguass_countY) {
+                                    node.y += openguass_speed
+                                } else {
+                                    node.y -= openguass_speed
+                                }
+                            }
+                        });
+
+                        if (this.nodesData.nodes[1].x > graph.getWidth() - 100) {
+                            this.openeuler_countX = false
                         } else if (this.nodesData.nodes[3].x < 100)
-                            countX = 1;
-                        if (this.nodesData.nodes[2].y > 500) {
-                            countY = 0
+                            this.openeuler_countX = true;
+                        if (this.nodesData.nodes[2].y > graph.getHeight() - 100) {
+                            this.openeuler_countY = false
                         } else if (this.nodesData.nodes[3].y < 100)
-                            countY = 1;
+                            this.openeuler_countY = true;
+
+                        if (this.nodesData.nodes[6].x > graph.getWidth()) {
+                            this.openguass_countX = false
+                        } else if (this.nodesData.nodes[7].x < 100)
+                            this.openguass_countX = true;
+                        if (this.nodesData.nodes[7].y > graph.getHeight()) {
+                            this.openguass_countY = false
+                        } else if (this.nodesData.nodes[5].y < 100)
+                            this.openguass_countY = true;
                         graph.refresh();
                     }, 2000);
                 };
 
-                animation();
-                graph.on('node:mouseenter', (ev) => {
-
-                    console.log('mouseenter', ev);
-                    let node = ev.item;
-                    const model = node.getModel();
-                    graph.setItemState(node, 'hover', true);
-                    let size = 0;
-                    switch (model.id) {
-                        case 'openeuler':
-                            this.nodesData.nodes[0].label = this.nodesData.nodes[0].description
-                            this.nodesData.nodes[0].size = 200;
-
-                            break;
-
-                        case 'prow':
-                            this.nodesData.nodes[1].label = this.nodesData.nodes[1].description;
-                            this.nodesData.nodes[1].size = 120;
-
-                            break;
-
-                        case 'mail-list':
-
-                        case 'cla':
-
-                        case 'Yabot':
-                            size = 120
-
-                            break;
-
-                    }
-                    graph.refreshItem(node);
-
+                let interval = animation();
+                graph.on('node:mouseenter', (e) => {
+                    graph.setItemState(e.item, 'hover', true);
+                    graph.changeData(this.nodesData)
+                    graph.stopAnimate()
+                    clearInterval(interval)
                 });
-                graph.on('node:mouseleave', (ev) => {
-                    console.log('mouseleave,', ev);
-                    let
-                        node = ev.item;
-                    const model = node.getModel();
-                    model.oriLabel = model.label;
-                    graph.setItemState(node, 'hover', false);
-                    let size = 0;
-
-                    switch (model.id) {
-                        case 'openeuler':
-                            this.nodesData.nodes[0].label = this.nodesData.nodes[0].id;
-                            this.nodesData.nodes[0].size = 100;
-                            break;
-
-                        case 'prow':
-                            this.nodesData.nodes[1].label = this.nodesData.nodes[1].id;
-                            this.nodesData.nodes[1].size = 60;
-
-                            break;
-
-                        case 'mail-list':
-
-                        case 'cla':
-
-                        case 'Yabot':
-                            size = 60;
-
-                            break;
-
-                    }
-                    graph.refreshItem(node);
-
-
+                graph.on('node:mouseleave', (e) => {
+                    graph.setItemState(e.item, 'hover', false);
+                    interval = animation();
                 });
-
+                // setInterval(() => {
+                //     console.log('crushInterval');
+                //
+                // for (let i = 0; i < 5; i++) {
+                //     for (let j = 5; j < 8; j++) {
+                //         console.log(this.nodesData.nodes[i].x, this.nodesData.nodes[j].x);
+                //         if (this.computedDistance(this.nodesData.nodes[i].x, this.nodesData.nodes[j].x, this.nodesData.nodes[i].y, this.nodesData.nodes[j].y, this.nodesData.nodes[i].size / 2, this.nodesData.nodes[j].size / 2)) {
+                //             console.log('openeuler_countX==', this.openeuler_countX);
+                //             this.openeuler_countX = !this.openeuler_countX;
+                //             this.openeuler_countY = !this.openeuler_countY;
+                //             this.openguass_countX = !this.openguass_countX;
+                //             this.openguass_countY = !this.openguass_countY;
+                //             console.log('openeuler_countX', this.openeuler_countX);
+                //         }
+                //     }
+                // }
+                //     }, 50);
+                },
+                // computedDistance(x1, x2, y1, y2, r1, r2)
+                // {
+                //     console.log((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) - (r1 + r2) * (r1 + r2));
+                //     return (Math.abs((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) - (r1 + r2) * (r1 + r2)) < 20);
+                // },
             },
-
-        },
-        mounted() {
-            this.createGraph();
-            let clientHeight = util.getClientHeight();
-            if (document.getElementById('section_3').offsetTop - document.documentElement.scrollTop < clientHeight) {
-                document.getElementsByClassName('bg_1')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
-                document.getElementsByClassName('bg_1_cover')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
-            } else {
-                document.getElementsByClassName('bg_1')[0].style.height = `${clientHeight}px`;
-                document.getElementsByClassName('bg_1_cover')[0].style.height = `${clientHeight}px`
-            }
-            if (document.getElementById('section_5').offsetTop - document.documentElement.scrollTop < clientHeight) {
-                document.getElementsByClassName('bg_2')[0].style.height = document.getElementById('section_5').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_4')).height) / 2 + 'px';
-            } else {
-                document.getElementsByClassName('bg_2')[0].style.height = `${clientHeight}px`;
-            }
-            document.getElementsByClassName('bg_3')[0].style.height = `${clientHeight}px`;
-            document.getElementsByClassName('bg_3_cover')[0].style.height = `${clientHeight}px`;
-            window.onscroll = () => {
-                if (document.getElementById('section_3').offsetTop - document.documentElement.scrollTop > 0) {
-                    if (document.documentElement.clientHeight - document.getElementById('section_3').offsetTop + document.documentElement.scrollTop + parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 > 0) {
-                        document.getElementsByClassName('bg_1')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
-                        document.getElementsByClassName('bg_1_cover')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
-                    } else {
-                        document.getElementsByClassName('bg_1')[0].style.height = document.documentElement.clientHeight + 'px';
-                        document.getElementsByClassName('bg_1_cover')[0].style.height = document.documentElement.clientHeight + 'px'
-                    }
+            mounted() {
+                this.createGraph();
+                let clientHeight = util.getClientHeight();
+                if (document.getElementById('section_3').offsetTop - document.documentElement.scrollTop < clientHeight) {
+                    document.getElementsByClassName('bg_1')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
+                    document.getElementsByClassName('bg_1_cover')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
+                } else {
+                    document.getElementsByClassName('bg_1')[0].style.height = `${clientHeight}px`;
+                    document.getElementsByClassName('bg_1_cover')[0].style.height = `${clientHeight}px`
                 }
-                if (document.getElementById('section_5').offsetTop - document.documentElement.scrollTop > 0) {
-                    if (document.documentElement.clientHeight - document.getElementById('section_5').offsetTop + document.documentElement.scrollTop + parseInt(window.getComputedStyle(document.getElementById('section_4')).height) / 2 > 0) {
-                        document.getElementsByClassName('bg_2')[0].style.height = document.getElementById('section_5').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_4')).height) / 2 + 'px';
-                    } else {
-                        document.getElementsByClassName('bg_2')[0].style.height = document.documentElement.clientHeight + 'px'
-                    }
+                if (document.getElementById('section_5').offsetTop - document.documentElement.scrollTop < clientHeight) {
+                    document.getElementsByClassName('bg_2')[0].style.height = document.getElementById('section_5').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_4')).height) / 2 + 'px';
+                } else {
+                    document.getElementsByClassName('bg_2')[0].style.height = `${clientHeight}px`;
                 }
-            };
-        },
-        beforeDestroy() {
-            window.onscroll = null
+                document.getElementsByClassName('bg_3')[0].style.height = `${clientHeight}px`;
+                document.getElementsByClassName('bg_3_cover')[0].style.height = `${clientHeight}px`;
+                window.onscroll = () => {
+                    if (document.getElementById('section_3').offsetTop - document.documentElement.scrollTop > 0) {
+                        if (document.documentElement.clientHeight - document.getElementById('section_3').offsetTop + document.documentElement.scrollTop + parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 > 0) {
+                            document.getElementsByClassName('bg_1')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
+                            document.getElementsByClassName('bg_1_cover')[0].style.height = document.getElementById('section_3').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_2')).height) / 2 + 'px';
+                        } else {
+                            document.getElementsByClassName('bg_1')[0].style.height = document.documentElement.clientHeight + 'px';
+                            document.getElementsByClassName('bg_1_cover')[0].style.height = document.documentElement.clientHeight + 'px'
+                        }
+                    }
+                    if (document.getElementById('section_5').offsetTop - document.documentElement.scrollTop > 0) {
+                        if (document.documentElement.clientHeight - document.getElementById('section_5').offsetTop + document.documentElement.scrollTop + parseInt(window.getComputedStyle(document.getElementById('section_4')).height) / 2 > 0) {
+                            document.getElementsByClassName('bg_2')[0].style.height = document.getElementById('section_5').offsetTop - document.documentElement.scrollTop - parseInt(window.getComputedStyle(document.getElementById('section_4')).height) / 2 + 'px';
+                        } else {
+                            document.getElementsByClassName('bg_2')[0].style.height = document.documentElement.clientHeight + 'px'
+                        }
+                    }
+                };
+            },
+            beforeDestroy() {
+                window.onscroll = null
+            }
         }
-    }
 </script>
-
+<style src="../styles/theme.styl" lang="stylus"></style>
 <style lang="stylus">
     .home
         //padding-top $navbarHeight
@@ -480,7 +539,7 @@
             padding 1rem
 
         .white_content_box
-            max-width 1200px
+            max-width 1500px
             margin 0 auto
 
         .section
@@ -548,19 +607,21 @@
             z-index 11
 
 
-    .bg_1
-      z-index 10
-      background-image url("../images/home-bg.jpg")
+        .bg_1
+            z-index 10
+            background-image url("../images/home-bg.jpg")
 
-    .bg_2
-      z-index 9
-      background-image url("../images/feature-bg.jpg")
+        .bg_2
+            z-index 9
+            background-image url("../images/feature-bg.jpg")
+
         .bg_3_cover
             background rgba(0 0 0 .7)
             z-index 8
-    .bg_3
-      z-index 7
-      background-image url("../images/call-to-action-bg.jpg")
+
+        .bg_3
+            z-index 7
+            background-image url("../images/call-to-action-bg.jpg")
 
         .action-button
             display inline-block
