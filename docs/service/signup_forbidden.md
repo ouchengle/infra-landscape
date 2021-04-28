@@ -1,5 +1,5 @@
 ---
-title: 基础设施邮件列表禁止注册
+title: 邮件列表禁止注册
 date: 2021-04-22
 author: liuqi
 categories:
