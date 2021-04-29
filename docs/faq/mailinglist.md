@@ -28,3 +28,7 @@ A：发送任何邮件内容到**listname-leave@openeuler.org**后回复一封�
 图3：收到退订成功邮件
 ![enter image description here](https://gitee.com/suisuisuisuixin/test/raw/master/unsub.png)
 
+
+### Q5: 在某个邮件列表中的设置中修改了Archive policy，为什么在hyperkitty/api/lists/查看邮件列表信息仍未变化？
+
+A: 当前hyperkitty存在未知错误，无法自动同步数据库，因此在postorius中修改了设置不能立即更新，需管理员进入mailweb后台手动执行`python3 manage.py mailman-sync`进行数据库同步。
