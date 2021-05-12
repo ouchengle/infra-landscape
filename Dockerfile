@@ -8,7 +8,7 @@ COPY . /home/infra-landscape
 RUN npm install && \
     npm run docs:build
 
-FROM nginx:1.19.2
+FROM nginx:1.20.0
 COPY --from=Builder /home/infra-landscape/dest /usr/share/nginx/html/
 COPY ./deploy/default.conf /etc/nginx/conf.d/
 RUN chmod -R 755 /usr/share/nginx/html
