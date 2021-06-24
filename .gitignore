@@ -1,5 +1,5 @@
-.idea/
 /node_modules/
+/.idea/
 package-lock.json
-/docs/.vuepress/theme/node_modules/
-docs/.vuepress/theme/package-lock.json
+dest
+/.vuepress-eject/
