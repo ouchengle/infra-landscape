@@ -20,7 +20,7 @@ mailman-website系统的UI，其本身也是mailman社区的一部分，用户�
 5. **database**  
 mailman core和mailman website的后端数据库，支持mysql和postgrious。
 
-# 部署部署版本和修改介绍
+# 部署版本和修改介绍
 TODO
 # 新增域名支持
 当前部署的邮件列表服务支持快速上线新的域名，你只需要按照下面的步骤提供相应的信息给基础设施团队即可。

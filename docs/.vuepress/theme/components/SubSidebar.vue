@@ -5,8 +5,7 @@ import { isActive } from '@theme/helpers/utils'
 export default defineComponent({
   setup (props, ctx) {
     const instance = getCurrentInstance().proxy
-
-    const headers = computed(() => {
+      const headers = computed(() => {
       return instance.$showSubSideBar ? instance.$page.headers : []
     })
 
@@ -19,8 +18,7 @@ export default defineComponent({
       }
       return active
     }
-
-    return { headers, isLinkActive }
+      return { headers, isLinkActive }
   },
   render (h) {
     return h('ul', {
@@ -72,5 +70,13 @@ export default defineComponent({
       padding-left .9rem
     &.level-3
       padding-left 1.5rem
+    &.level-4
+      padding-left 2.1rem !important
+    &.level-5
+      padding-left 2.7rem !important
+    &.level-6
+      padding-left 3.2rem !important
+
+
 </style>
 
